@@ -78,12 +78,12 @@ object KafkaMsgProducer {
 
       val name = s"威廉莎士比亚($i)号"
 
-      val re: String = s"00:FTVD7D::9::::'10:::$name:$i::1:1:::::$date1::$port::::99'"
+      val re: String = s"00:FTVD7D::9::::00'10::$i:$name:$i::1:1:::::$date1::$port::::99'"
       p.send(new KeyedMessage[String, String]("message", re))
       println(re)
 
 
-      val re2: String = s"00:FTVD7D::9::::'10:::$name:$i::1:2::::::$date2:$port::::99'"
+      val re2: String = s"00:FTVD7D::9::::00'10::$i:$name:$i::1:2::::::$date2:$port::::99'"
       p.send(new KeyedMessage[String, String]("message", re2))
       println(re2)
 //      Thread.sleep(100)
@@ -116,11 +116,11 @@ object KafkaMsgProducer {
 
       val name = s"威廉莎士比亚($i)号"
 
-      val tp1 = s"00:VDL24H::9::::'10::::$name:$i::1:1:1:::::$t1::$num::::99'"
+      val tp1 = s"00:VDL24H::9::::00'10::$i::$name:$i::1:1:1:::::$t1::$num::::99'"
       p.send(new KeyedMessage[String, String]("message", tp1))
       println(tp1)
 
-      val tp2 = s"00:VDL24H::9::::'10::::$name:$i::1:1:2::::::$t2:$num::::99'"
+      val tp2 = s"00:VDL24H::9::::00'10::$i::$name:$i::1:1:2::::::$t2:$num::::99'"
       p.send(new KeyedMessage[String, String]("message", tp2))
       println(tp2)
 
